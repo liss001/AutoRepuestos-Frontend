@@ -4,7 +4,7 @@ import type { ProductoDTO } from "../../Models/ProductoDTO";
 import { 
   Box, Typography, Card, CardContent, CardMedia, Chip, Paper, Divider 
 } from "@mui/material";
-// Importamos Grid2 que es el estándar actual
+
 import Grid from "@mui/material/Grid"; 
 import InventoryIcon from '@mui/icons-material/Inventory';
 import BuildIcon from '@mui/icons-material/Build';
@@ -14,13 +14,13 @@ export const Inicio = () => {
 
   useEffect(() => {
     productoRepo.obtenerTodos()
-      .then(data => setProductos(data.slice(0, 8))) // Mostramos solo los primeros 8 para el inicio
+      .then(data => setProductos(data.slice(0, 8))) 
       .catch(err => console.error("Error cargando productos:", err));
   }, []);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      {/* Encabezado Principal */}
+      {}
       <Paper 
         elevation={0} 
         sx={{ 
@@ -35,7 +35,7 @@ export const Inicio = () => {
         }}
       >
         <Typography variant="h3" sx={{ fontWeight: 'bold', letterSpacing: -1 }}>
-          AutoRepuestos "El Amigo"
+          AutoRepuestos 
         </Typography>
         <Typography variant="h6" sx={{ opacity: 0.8, fontWeight: 300 }}>
           Panel de Control e Inventario en Tiempo Real
@@ -72,7 +72,7 @@ export const Inicio = () => {
                 <CardMedia
                   component="img"
                   height="160"
-                  image="https://img.freepik.com/premium-vector/auto-parts-spare-parts-car-background_67394-1100.jpg"
+                  image="https://www.shutterstock.com/image-illustration/car-parts-auto-spare-isolated-260nw-2523577955.jpg"
                   alt={p.nombre}
                   sx={{ bgcolor: '#f5f5f5', p: 1 }}
                 />

@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Typography, Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Drawer, Divider } from "@mui/material";
+import { AppBar, Toolbar, Typography, Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Drawer, Divider, IconButton } from "@mui/material";
 import { Outlet, useNavigate } from "react-router-dom";
 
 // Iconos
@@ -15,17 +15,29 @@ export const DashboardLayout = () => {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      {/* 1. Header Azul */}
+      {}
       <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, backgroundColor: '#1976d2' }}>
         <Toolbar>
           <StorefrontIcon sx={{ mr: 2 }} />
           <Typography variant="h6" noWrap component="div">
-            AutoRepuestos "El Amigo"
+            AutoRepuestos
           </Typography>
+
+          {}
+          <Box sx={{ flexGrow: 1 }} />
+
+          {}
+          <IconButton 
+            color="inherit" 
+            onClick={() => navigate("/")}
+            title="Ir al Inicio"
+          >
+            <HomeIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
 
-      {/* 2. Menú Lateral */}
+      {}
       <Drawer
         variant="permanent"
         sx={{
@@ -34,21 +46,9 @@ export const DashboardLayout = () => {
           [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
         }}
       >
-        <Toolbar /> {/* Espacio para que no lo tape el AppBar */}
+        <Toolbar /> 
         <Box sx={{ overflow: 'auto' }}>
           <List>
-            {/* BOTÓN INICIO (Página de Bienvenida) */}
-            <ListItem disablePadding>
-              <ListItemButton onClick={() => navigate("/")}>
-                <ListItemIcon>
-                  <HomeIcon color="primary" />
-                </ListItemIcon>
-                <ListItemText primary="Inicio" sx={{ fontWeight: 'bold' }} />
-              </ListItemButton>
-            </ListItem>
-
-            <Divider />
-
             {/* BOTÓN CLIENTES */}
             <ListItem disablePadding>
               <ListItemButton onClick={() => navigate("/clientes")}>
@@ -82,9 +82,9 @@ export const DashboardLayout = () => {
         </Box>
       </Drawer>
 
-      {/* 3. Contenido Principal */}
+      {/* CONTENIDO PRINCIPAL */}
       <Box component="main" sx={{ flexGrow: 1, p: 3, mt: 8 }}>
-        <Outlet /> {/* Aquí se cargan todos tus componentes */}
+        <Outlet /> 
       </Box>
     </Box>
   );
